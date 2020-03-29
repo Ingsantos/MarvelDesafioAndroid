@@ -21,7 +21,7 @@ public class Result implements Parcelable {
     @Expose
     private List<Date> dates;
     @Expose
-    private Object description;
+    private String description;
     @Expose
     private String diamondCode;
     @Expose
@@ -71,6 +71,7 @@ public class Result implements Parcelable {
 
     protected Result(Parcel in) {
         dates = in.createTypedArrayList(Date.CREATOR);
+        description = in.readString();
         diamondCode = in.readString();
         if (in.readByte() == 0) {
             digitalId = null;
@@ -157,11 +158,11 @@ public class Result implements Parcelable {
         this.dates = dates;
     }
 
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -357,6 +358,7 @@ public class Result implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeTypedList(dates);
+        dest.writeString(description);
         dest.writeString(diamondCode);
         if (digitalId == null) {
             dest.writeByte((byte) 0);

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.marvelapi.R;
 import com.example.marvelapi.model.Result;
+import com.example.marvelapi.view.interfaces.ComicsListener;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
@@ -17,9 +18,12 @@ import java.util.List;
 public class MarvelAdapter extends RecyclerView.Adapter<MarvelAdapter.ViewHolder>{
 
     private List<Result> comicsModelsList;
+    private ComicsListener comicsListenerComics;
 
-    public MarvelAdapter(List<Result> listStaticComicsModels) {
-        this.comicsModelsList = listStaticComicsModels;
+
+    public MarvelAdapter(List<Result> comicsModelsList, ComicsListener comicsListenerComics) {
+        this.comicsModelsList = comicsModelsList;
+        this.comicsListenerComics = comicsListenerComics;
     }
 
     @NonNull
@@ -33,6 +37,14 @@ public class MarvelAdapter extends RecyclerView.Adapter<MarvelAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Result staticComicsModel = comicsModelsList.get(position);
         holder.bind(staticComicsModel);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(Integer.toString(position), "Valor de position");
+                Log.i(comicsModelsList.get(position).toString(), "Valor de comicsModelsList.get(position)");
+                comicsListenerComics.SendComicsOnClick(staticComicsModel);
+            }
+        });
     }
 
     @Override
@@ -50,16 +62,19 @@ public class MarvelAdapter extends RecyclerView.Adapter<MarvelAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+
         private ImageView mImageView;
         private TextView mTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             mImageView = itemView.findViewById(R.id.imageViewComics);
             mTextView = itemView.findViewById(R.id.textViewComics);
         }
 
         public void bind (Result staticComicsModel){
+
             String imageURL = staticComicsModel.getThumbnail()
                     .getPath().replace("http://", "https://");
 
