@@ -9,17 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.marvelapi.R;
-import com.example.marvelapi.model.StaticComicsModel;
+import com.example.marvelapi.model.Result;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
 
 public class MarvelAdapter extends RecyclerView.Adapter<MarvelAdapter.ViewHolder>{
 
-    private List<StaticComicsModel> listStaticComicsModels;
+    private List<Result> comicsModelsList;
 
-    public MarvelAdapter(List<StaticComicsModel> listStaticComicsModels) {
-        this.listStaticComicsModels = listStaticComicsModels;
+    public MarvelAdapter(List<Result> listStaticComicsModels) {
+        this.comicsModelsList = listStaticComicsModels;
     }
 
     @NonNull
@@ -31,41 +31,43 @@ public class MarvelAdapter extends RecyclerView.Adapter<MarvelAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        StaticComicsModel staticComicsModel = listStaticComicsModels.get(position);
+        Result staticComicsModel = comicsModelsList.get(position);
         holder.bind(staticComicsModel);
     }
 
     @Override
     public int getItemCount() {
-        return listStaticComicsModels.size();
+        return comicsModelsList.size();
     }
 
-    public void comicsListUpdate (List<StaticComicsModel> newList){
-        if (this.listStaticComicsModels.isEmpty())
-            this.listStaticComicsModels = newList;
+    public void comicsListUpdate (List<Result> newList){
+        if (this.comicsModelsList.isEmpty())
+            this.comicsModelsList = newList;
         else{
-            this.listStaticComicsModels.addAll(newList);
+            this.comicsModelsList.addAll(newList);
         }
         notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-
         private ImageView mImageView;
         private TextView mTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             mImageView = itemView.findViewById(R.id.imageViewComics);
             mTextView = itemView.findViewById(R.id.textViewComics);
         }
 
-        public void bind (StaticComicsModel staticComicsModel){
-            mTextView.setText(staticComicsModel.getComicsNumber());
-            Picasso.get().load(staticComicsModel.getImageURL()+staticComicsModel.getImageExtension())
-                    .into(mImageView);
-            Log.i(staticComicsModel.getImageURL()+staticComicsModel.getImageExtension(), "imageString");
+        public void bind (Result staticComicsModel){
+            String imageURL = staticComicsModel.getThumbnail()
+                    .getPath().replace("http://", "https://");
+
+            mTextView.setText("#"+staticComicsModel.getIssueNumber().toString());
+            Picasso.get().load(imageURL+"."
+                    +staticComicsModel.getThumbnail().getExtension()).into(mImageView);
+
+            Log.i(imageURL, "QUERO VER O VALOR");
         }
     }
 

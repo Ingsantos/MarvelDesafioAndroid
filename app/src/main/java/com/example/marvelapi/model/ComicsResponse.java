@@ -4,7 +4,7 @@ package com.example.marvelapi.model;
 import com.google.gson.annotations.Expose;
 
 @SuppressWarnings("unused")
-public class ComicsPojo {
+public class ComicsResponse {
 
     @Expose
     private String attributionHTML;
