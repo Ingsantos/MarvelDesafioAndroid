@@ -8,4 +8,11 @@
     <string name="tools_value">$32</string>
     <string name="comics_page">Page: \u0020</string>
     <string name="tools_page_number">294</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember">Remember</string>
+    <string name="log_in">Log in</string>
+    <string name="create_account">Create Account</string>
+    <string name="incorret_input">Usuário ou senha não atendem as regras, por favor, tente novamente</string>
+    <string name="null_input">Por favor, preencha todos os campos</string>
 </resources>
