@@ -35,7 +35,7 @@ public class Result implements Parcelable {
     @Expose
     private Long id;
     @Expose
-    private List<Object> images;
+    private List<Image> images;
     @Expose
     private String isbn;
     @Expose
@@ -69,6 +69,7 @@ public class Result implements Parcelable {
     @Expose
     private List<Object> variants;
 
+
     protected Result(Parcel in) {
         dates = in.createTypedArrayList(Date.CREATOR);
         description = in.readString();
@@ -85,6 +86,7 @@ public class Result implements Parcelable {
         } else {
             id = in.readLong();
         }
+        images = in.createTypedArrayList(Image.CREATOR);
         isbn = in.readString();
         issn = in.readString();
         if (in.readByte() == 0) {
@@ -214,11 +216,11 @@ public class Result implements Parcelable {
         this.id = id;
     }
 
-    public List<Object> getImages() {
+    public List<Image> getImages() {
         return images;
     }
 
-    public void setImages(List<Object> images) {
+    public void setImages(List<Image> images) {
         this.images = images;
     }
 
@@ -374,6 +376,7 @@ public class Result implements Parcelable {
             dest.writeByte((byte) 1);
             dest.writeLong(id);
         }
+        dest.writeTypedList(images);
         dest.writeString(isbn);
         dest.writeString(issn);
         if (issueNumber == null) {

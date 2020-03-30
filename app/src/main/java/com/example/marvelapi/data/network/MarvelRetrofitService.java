@@ -35,7 +35,6 @@ public class MarvelRetrofitService {
                     .client(httpClient.build())
                     .build();
         }
-
         return retrofit;
     }
 

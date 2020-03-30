@@ -34,9 +34,9 @@
                 android:src="@drawable/spiderman" />
 
             <FrameLayout
-                android:layout_width="85dp"
-                android:layout_height="130dp"
-                android:layout_gravity="start|bottom"
+                android:layout_width="130dp"
+                android:layout_height="200dp"
+                android:layout_gravity="bottom"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/white">
@@ -45,12 +45,13 @@
                     android:id="@+id/imageViewComicsBundle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:src="@drawable/spiderman" />
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/spiderman"/>
             </FrameLayout>
         </FrameLayout>
 

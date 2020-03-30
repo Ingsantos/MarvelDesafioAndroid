@@ -17,7 +17,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class MarvelViewModel extends AndroidViewModel {
-
     private MutableLiveData<List<Result>> comicsList = new MutableLiveData<>();
     private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
     public static final String PUBLIC_KEY = "6eb7e8896ec5850c52515a8a23ee97f0";

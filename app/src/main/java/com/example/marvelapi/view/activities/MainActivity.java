@@ -3,16 +3,13 @@ package com.example.marvelapi.view.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import com.example.marvelapi.R;
 import com.example.marvelapi.model.Result;
 import com.example.marvelapi.view.adapters.MarvelAdapter;
 import com.example.marvelapi.view.interfaces.ComicsListener;
 import com.example.marvelapi.viewmodel.MarvelViewModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements ComicsListener {
         mRecyclerView = findViewById(R.id.recyclerView);
         marvelAdapter = new MarvelAdapter(comicsList, this);
         mRecyclerView.setAdapter(marvelAdapter);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
     }
 
     @Override
