@@ -1,13 +1,9 @@
 package com.example.marvelapi.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import com.example.marvelapi.R;
-import com.example.marvelapi.view.MainActivity;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -31,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void timerJumper (){
         timer.cancel();
-        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
     }
 
 }

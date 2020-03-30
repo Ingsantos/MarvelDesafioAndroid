@@ -1,4 +1,4 @@
-package com.example.marvelapi.view;
+package com.example.marvelapi.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 import com.example.marvelapi.R;
-import com.example.marvelapi.view.activities.MainActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {

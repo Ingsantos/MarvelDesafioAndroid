@@ -18,9 +18,9 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".view.activities.DetailsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".view.activities.MainActivity">
-        <activity android:name=".view.LoginActivity"
-                  android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".view.activities.MainActivity"/>
+        <activity android:name=".view.activities.LoginActivity"
+                  android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".view.activities.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
