@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">MarvelAPI</string>
+    <string name="tools_title">POSICIONAMENTO TITULO COMICS #54 (TOOLS)</string>
+    <string name="tools_description">Teste descrição: Comics is a medium used to express narratives or other ideas through images, usually combined with text. It typically takes the form of a sequence of panels of images. Textual devices such as speech balloons, captions, and onomatopoeia can indicate dialogue, narration, sound effects, or other information.</string>
+    <string name="published">Published: \u0020</string>
+    <string name="tools_date">April 20, 16</string>
+    <string name="comics_price">Price: \u0020</string>
+    <string name="tools_value">$32</string>
+    <string name="comics_page">Page: \u0020</string>
+    <string name="tools_page_number">294</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="remember">Remember</string>
