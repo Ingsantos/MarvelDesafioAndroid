@@ -8,7 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.marvelapi.R;
 import com.example.marvelapi.model.Result;
+import com.example.marvelapi.util.MarvelUtil;
 import com.squareup.picasso.Picasso;
+
+import java.text.ParseException;
+
 import static com.example.marvelapi.view.activities.MainActivity.COMICS_KEY;
 
 public class DetailsActivity extends AppCompatActivity{
@@ -39,7 +43,11 @@ public class DetailsActivity extends AppCompatActivity{
                     +result.getThumbnail().getExtension()).into(ivComics);
             tvTitle.setText(result.getTitle());
             tvDescription.setText(result.getDescription());
-            tvPublishedDate.setText(result.getDates().get(0).getDate());
+            try {
+                tvPublishedDate.setText(MarvelUtil.getLocalDateString(result.getDates().get(0).getDate()));
+            }catch (ParseException e){
+                tvPublishedDate.setText("");
+            }
             tvPrice.setText(result.getPrices().get(0).getPrice().toString());
             tvPages.setText(result.getPageCount().toString());
         }
